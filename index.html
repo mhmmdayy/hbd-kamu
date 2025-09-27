@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            color: #333;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            margin-bottom: 25px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        #name-input {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        #submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background-color: #8e44ad;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit-btn:hover {
+            background-color: #9b59b6;
+        }
+
+        #birthday-message {
+            display: none; /* Sembunyikan pesan ulang tahun secara default */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="input-section">
+            <h1>Masukkan Nama Anda</h1>
+            <input type="text" id="name-input" placeholder="Ketik nama di sini...">
+            <button id="submit-btn">Submit</button>
+        </div>
+        <div id="birthday-message">
+            <h1 id="greeting-text"></h1>
+        </div>
+    </div>
+
+    <script>
+        const submitBtn = document.getElementById('submit-btn');
+        const nameInput = document.getElementById('name-input');
+        const inputSection = document.getElementById('input-section');
+        const birthdayMessage = document.getElementById('birthday-message');
+        const greetingText = document.getElementById('greeting-text');
+
+        submitBtn.addEventListener('click', function() {
+            const name = nameInput.value.trim(); // Ambil nama dan hapus spasi ekstra
+
+            if (name) { // Cek jika input nama tidak kosong
+                // Tampilkan pesan ulang tahun
+                greetingText.textContent = `Selamat ulang tahun, ${name}! 🎉`;
+                
+                // Sembunyikan form input dan tampilkan pesan
+                inputSection.style.display = 'none';
+                birthdayMessage.style.display = 'block';
+            } else {
+                // Beri peringatan jika nama kosong
+                alert('Mohon masukkan nama Anda.');
+            }
+        });
+    </script>
+
+</body>
+</html>
